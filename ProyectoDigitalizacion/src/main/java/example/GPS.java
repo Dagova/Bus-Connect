@@ -1,6 +1,7 @@
 package example;
 
-import org.example.Rutas.Ruta1;
+
+import example.Rutas.Ruta1;
 
 public class GPS {
     private  Bus[] bus;
