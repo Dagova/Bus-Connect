@@ -1,6 +1,5 @@
 package example;
 
-import java.security.spec.RSAOtherPrimeInfo;
 
 import static example.Rutas.Ruta1.*;
 
@@ -16,19 +15,19 @@ public class Bus {
         setVelocidad();
     }
 
-    public int getId() {
-        return id;
-    }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
     public int getPosicion() {
+
         return Posicion;
     }
 
     public void setPosicion(int posicion) {
+
         Posicion = posicion;
     }
 
@@ -37,6 +36,7 @@ public class Bus {
     }
 
     public void setVelocidad() {
+
         Velocidad = (int)(Math.random() * 5);
     }
 
@@ -76,15 +76,6 @@ public class Bus {
             System.out.println("Volviendo al comienzo de ruta");
             setPosicion(-1);
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Bus{" +
-                "id=" + id +
-                ", Posicion=" + Posicion +
-                ", Velocidad=" + Velocidad +
-                '}';
     }
 }
 

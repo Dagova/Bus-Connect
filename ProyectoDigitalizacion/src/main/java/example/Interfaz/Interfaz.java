@@ -1,6 +1,8 @@
 package example.Interfaz;
 
 
+import example.GPS;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +15,7 @@ public class Interfaz {
     private JFrame frame;
     private JPanel panel;
     private JTextArea textArea;
+    private final PrintStream consolaOriginal = System.out;
 
     public Interfaz() {
         gps = new GPS();
@@ -50,36 +53,67 @@ public class Interfaz {
         frame.add(panel);
         frame.setVisible(true);
 
-        // Redirigir la salida estándar (System.out) al JTextArea
-        Reescritura();
 
         // Definir los listeners para los botones
         btnBus1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Redirigir la salida estándar (System.out) al JTextArea
+                Reescritura();
+
                 textArea.append("Consulta Bus 1.\n");
                 gps.actualizacionBus1();
                 textArea.append("");
+
+                // Redirigir la salida al formato estandar
+                RestaurarSalidaConsola();
             }
         });
 
         btnBus2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Redirigir la salida estándar (System.out) al JTextArea
+                Reescritura();
+
                 textArea.append("Consulta Bus 2.\n");
                 gps.actualizacionBus2();
                 textArea.append("");
+
+
+                // Redirigir la salida al formato estandar
+                RestaurarSalidaConsola();
             }
         });
 
         btnBus3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Redirigir la salida estándar (System.out) al JTextArea
+                Reescritura();
+
                 textArea.append("Consulta Bus 3 .\n");
                 gps.actualizacionBus3();
                 textArea.append("");
+
+                // Redirigir la salida al formato estandar
+                RestaurarSalidaConsola();
             }
         });
+
+        Timer timer = new Timer(2000, new ActionListener() {
+            //Cada 2 segundos se actualiza posicion
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gps.actualizacionBus1();
+                gps.actualizacionBus2();
+                gps.actualizacionBus3();
+            }
+        });
+        timer.start();
     }
 
     private void Reescritura() {
@@ -94,4 +128,8 @@ public class Interfaz {
         System.setOut(ps); // Redirige System.out a este PrintStream
     }
 
+    private void RestaurarSalidaConsola() {
+        // Redirigir la salida al formato estandar
+        System.setOut(consolaOriginal);
+    }
 }
