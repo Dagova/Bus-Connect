@@ -42,10 +42,12 @@ public class Interfaz {
         JButton btnBus1 = new JButton("Consultar Bus 1");
         JButton btnBus2 = new JButton("Consultar Bus 2");
         JButton btnBus3 = new JButton("Consultar Bus 3");
+        JButton btnBus4 = new JButton("Salir");
 
         buttonPanel.add(btnBus1);
         buttonPanel.add(btnBus2);
         buttonPanel.add(btnBus3);
+        buttonPanel.add(btnBus4);
 
         panel.add(buttonPanel, BorderLayout.NORTH);
 
@@ -101,6 +103,14 @@ public class Interfaz {
 
                 // Redirigir la salida al formato estandar
                 RestaurarSalidaConsola();
+            }
+        });
+
+        btnBus4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gps.guardarDatos();
+                System.exit(0);
             }
         });
 
