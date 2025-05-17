@@ -15,6 +15,8 @@ public class GPS {
       cargarDatos();
     }
 
+
+    //Carga Datos de un json, si no carga un default
     public void cargarDatos() {
         File archivo = new File("buses.json");
         if (archivo.exists()) {
@@ -35,6 +37,8 @@ public class GPS {
             System.out.println("Archivo no encontrado. Usando datos por defecto.");
         }
     }
+
+    //Guarda datos de un Json si no esta lo crea
     public void guardarDatos() {
         try (FileWriter writer = new FileWriter("buses.json")) {
             Gson gson = new Gson();
@@ -44,6 +48,7 @@ public class GPS {
             e.printStackTrace();
         }
     }
+    //Actualizacion de posicion de los 3 buses
     public  void actualizacionBus1(){
 
         bus[0].actualizacionPosicion();

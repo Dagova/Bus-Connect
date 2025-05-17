@@ -23,11 +23,13 @@ public class Interfaz {
         // Crear la ventana principal
         frame = new JFrame("Consulta de Buses");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-
+        frame.setSize(800, 400);
+        frame.setLocationRelativeTo(null); // centra la ventana
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // elimina boton de cerrar
         // Crear el panel
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
+
 
         // Crear un área de texto para mostrar los resultados
         textArea = new JTextArea();
@@ -35,9 +37,9 @@ public class Interfaz {
         JScrollPane scrollPane = new JScrollPane(textArea);
         panel.add(scrollPane, BorderLayout.CENTER);
 
-        // Crear los botones con GridLayout para asegurarnos que caben los tres
+        // Crear los botones con GridLayout para asegurarnos que caben los cuatro
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(1, 3)); // 1 fila, 3 columnas
+        buttonPanel.setLayout(new GridLayout(1, 4)); // 1 fila, 4 columnas
 
         JButton btnBus1 = new JButton("Consultar Bus 1");
         JButton btnBus2 = new JButton("Consultar Bus 2");

@@ -2,6 +2,8 @@ package example.Rutas;
 
 import java.util.Random;
 
+
+// se define ruta de los autobuses
 public class Ruta1 {
     private static final String[] ruta = {
             "Prado de San Sebastián (Carlos V)",
@@ -19,6 +21,7 @@ public class Ruta1 {
             "Carmen Vendrell"
     };
 
+    //Le ponemos unas coordenadas cercanas a cada parada de autobus
     public static void obtenerCoordenadas(String parada) {
         double latMin = 0, latMax = 0, lonMin = 0, lonMax = 0;
 
